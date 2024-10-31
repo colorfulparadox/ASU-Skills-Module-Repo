@@ -10,12 +10,29 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            //Spacer()
+            
+            Text("This is a button clicker app!")
+                .font(.headline)
+                .padding(.bottom, 25.0)
+            
+            Button(action: test) {
+                Text("Click me!")
+            }
+            .buttonStyle(.borderedProminent)
+            
+            Text("Your clicks so far: %d")
+                .font(.subheadline)
+                
+            
+           // Spacer()
+            
         }
         .padding()
+    }
+    
+    func test() {
+        
     }
 }
 
