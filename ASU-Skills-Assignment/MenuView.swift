@@ -12,6 +12,19 @@ struct MenuView: View {
         VStack {
             Text("Button Clicker")
                 .font(.title)
+            
+            Button(action: {}) {
+                Text("Play Game")
+                    .font(.title)
+            }
+            .buttonStyle(.borderedProminent)
+            
+            Button(action: {}) {
+                Text("Reset Score")
+                    .font(.subheadline)
+            }
+            .buttonStyle(.bordered)
+            .padding(.top, 25.0)
         }
     }
 }

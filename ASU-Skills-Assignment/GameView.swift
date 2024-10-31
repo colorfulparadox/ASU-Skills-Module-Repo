@@ -16,11 +16,17 @@ struct GameView: View {
         VStack {
             //Spacer()
             
-            Text("This is a button clicker app!")
+            Text("Click the button!")
                 .font(.headline)
                 .padding(.bottom, 25.0)
             
-            Button(action: { Clicked(clicker: &clicker) }) {
+            Button(action: {
+                Clicked(clicker: &clicker)
+                
+                if clicker.score > clicker.highscore+1 {
+                    newHighScore = true
+                }
+            }) {
                 Text("Click me!")
             }
             .buttonStyle(.borderedProminent)
@@ -28,14 +34,17 @@ struct GameView: View {
             
             Text("Your clicks so far: \(clicker.score)" )
             if clicker.score > clicker.highscore && !newHighScore {
+                
                 Text("You reached a new highscore of \(clicker.score)!!!")
                     .font(.system(size: 18, weight: .bold, design: .default))
-                    .fixedSize(horizontal: true, vertical: true)
                     .background(Color.red)
-                    .transition(.identity)
-                    .animation(.easeIn, value: 1)
+                    .transition(.opacity)
             }
-            else {
+            else if newHighScore == true {
+                Text("This is your current highscore!!!")
+                    .font(.system(size: 14, weight: .light, design: .default))
+            }
+            else if newHighScore == false {
                 Text("Your highscore: \(GetClickerHighScore(clicker: clicker))")
                     .font(.subheadline)
             }
