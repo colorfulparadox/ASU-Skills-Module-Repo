@@ -11,7 +11,7 @@ import SwiftUI
 struct ASU_Skills_AssignmentApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            GameView()
         }
     }
 }
