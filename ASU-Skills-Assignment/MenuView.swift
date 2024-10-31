@@ -20,7 +20,9 @@ struct MenuView: View {
                 }
                 .buttonStyle(.borderedProminent)
                 
-                Button(action: {}) {
+                Button(action: {
+                    ResetHighScore()
+                }) {
                     Text("Reset Score")
                         .font(.subheadline)
                 }
